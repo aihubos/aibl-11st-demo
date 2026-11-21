@@ -1,0 +1,316 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="description" content="AI빌더스랩 소개 홈 — 종합몰 스타일로 꾸민 수업 예제 페이지입니다. 모든 강의·가격·후기는 더미 데이터입니다.">
+  <meta name="theme-color" content="#FFFFFF">
+  <title>AI빌더스랩 — 비개발자를 위한 AI 빌딩 강의몰 (수업 예제)</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23F43142'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='28' font-weight='900' text-anchor='middle' fill='white'%3EAI%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#main">본문 바로가기</a>
+
+  <!-- 1. 더미 데이터 안내 띠 -->
+  <div class="notice-strip" id="top" role="note">
+    <span class="notice-dot" aria-hidden="true"></span>수업 예제용 더미 데이터입니다 · 실제 판매/결제는 이루어지지 않아요
+  </div>
+
+  <!-- 2~3. 헤더 + 카테고리 탭 -->
+  <header class="site-header">
+    <div class="container header-row">
+      <a class="logo" href="#top" aria-label="AI빌더스랩 홈으로">AI<small>빌더스랩</small></a>
+
+      <form class="search" role="search" id="searchForm" action="#courses">
+        <label class="sr-only" for="searchInput">강의 검색</label>
+        <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+        <input id="searchInput" type="search" name="q" autocomplete="off" placeholder="배우고 싶은 AI 강의를 검색해 보세요">
+        <button type="button" class="search-clear" id="searchClear" aria-label="검색어 지우기" hidden>×</button>
+      </form>
+
+      <nav class="util-nav" aria-label="사용자 메뉴">
+        <button type="button" class="util-link" data-toast>로그인</button>
+        <button type="button" class="util-link" data-toast>내 강의실</button>
+        <button type="button" class="icon-btn" data-toast aria-label="장바구니 (담긴 강의 0개)" id="cartBtn">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 7H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>
+          <span class="badge" id="cartBadge" aria-hidden="true">0</span>
+        </button>
+        <button type="button" class="icon-btn" data-toast aria-label="마이 페이지">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>
+        </button>
+      </nav>
+    </div>
+
+    <nav class="cat-tabs" aria-label="카테고리">
+      <div class="container cat-tabs-inner" id="catTabs">
+        <a href="#top" class="cat-tab is-active" aria-current="page" data-tab="home">홈</a>
+        <a href="#courses" class="cat-tab" data-tab="courses">강의</a>
+        <a href="#study" class="cat-tab" data-tab="study">스터디</a>
+        <a href="#showcase" class="cat-tab" data-tab="showcase">빌더 결과물</a>
+        <a href="#community" class="cat-tab" data-tab="community">커뮤니티</a>
+        <a href="#timedeal" class="cat-tab" data-tab="event">이벤트</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" class="container">
+
+    <!-- 4. 히어로 배너 (캐러셀) -->
+    <section class="hero" id="hero" aria-roledescription="carousel" aria-label="이달의 혜택 배너">
+      <div class="hero-track" id="heroTrack">
+        <div class="hero-slide is-active" role="group" aria-roledescription="slide" aria-label="1 / 3">
+          <div class="hero-copy">
+            <p class="hero-eyebrow">매월 11일, 단 하루</p>
+            <h1 class="hero-title">월간 <span>빌더절</span></h1>
+            <p class="hero-desc">입문부터 자동화까지 인기 AI 강의를<br>빌더절 한정가로 만나보세요.</p>
+            <a class="hero-cta" href="#timedeal">빌더절 특가 보러가기 →</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <span class="hero-chip one">오늘만 바로수강</span>
+            <div class="ticket">
+              <div class="ticket-label">수강 쿠폰</div>
+              <div class="ticket-value">11%</div>
+              <div class="ticket-line"></div>
+              <div class="ticket-note">최대 20,000원 할인</div>
+            </div>
+            <span class="hero-chip two">최대 40% 특가</span>
+          </div>
+        </div>
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="2 / 3" hidden>
+          <div class="hero-copy">
+            <p class="hero-eyebrow">처음이라면 여기서부터</p>
+            <h2 class="hero-title">무료특강 <span>0원</span></h2>
+            <p class="hero-desc">AI가 처음인 비개발자를 위한<br>60분 맛보기 강의를 열어 두었어요.</p>
+            <a class="hero-cta" href="#courses">입문 강의 보러가기 →</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="ticket">
+              <div class="ticket-label">첫 수강 혜택</div>
+              <div class="ticket-value">0원</div>
+              <div class="ticket-line"></div>
+              <div class="ticket-note">맛보기 1강 무료</div>
+            </div>
+          </div>
+        </div>
+        <div class="hero-slide" role="group" aria-roledescription="slide" aria-label="3 / 3" hidden>
+          <div class="hero-copy">
+            <p class="hero-eyebrow">매주 목요일 밤 9시</p>
+            <h2 class="hero-title">빌더 <span>LIVE</span></h2>
+            <p class="hero-desc">강사와 수강생이 함께 만드는<br>실시간 Q&amp;A 라이브 (예시)</p>
+            <a class="hero-cta" href="#community">라이브 일정 보기 →</a>
+          </div>
+          <div class="hero-art" aria-hidden="true">
+            <div class="ticket">
+              <div class="ticket-label">알림 신청 시</div>
+              <div class="ticket-value">+1강</div>
+              <div class="ticket-line"></div>
+              <div class="ticket-note">보너스 강의 증정</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-controls">
+        <div class="hero-dots" id="heroDots">
+          <button type="button" class="hero-dot is-active" aria-label="1번째 배너 보기" aria-current="true"></button>
+          <button type="button" class="hero-dot" aria-label="2번째 배너 보기"></button>
+          <button type="button" class="hero-dot" aria-label="3번째 배너 보기"></button>
+        </div>
+        <button type="button" class="hero-pause" id="heroPause" aria-label="배너 자동 넘김 멈추기">❚❚</button>
+      </div>
+    </section>
+
+    <!-- 5. 퀵메뉴 -->
+    <nav class="quick" aria-label="빠른 메뉴">
+      <ul class="quick-list">
+        <li><a href="#courses" data-query="바로수강"><span class="qi qi-red"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></svg></span>바로수강</a></li>
+        <li><a href="#courses" data-query="입문"><span class="qi qi-orange"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4zM10 9l5 3-5 3z"/></svg></span>무료특강</a></li>
+        <li><a href="#hero"><span class="qi qi-purple"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 8h16v11H4zM7 5h10v3M8 12h8m-4-4v8"/></svg></span>오늘쿠폰</a></li>
+        <li><a href="#community"><span class="qi qi-blue"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16v12H4z"/><path d="m9 10 5 2-5 2v-4Z"/></svg></span>빌더 LIVE</a></li>
+        <li><a href="#faq"><span class="qi qi-green"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 5h16v11H9l-5 4z"/></svg></span>1:1 코칭</a></li>
+        <li><a href="#showcase"><span class="qi qi-red"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 4h7v7H4zM13 4h7v7h-7zM4 13h7v7H4zM13 13h7v7h-7z"/></svg></span>템플릿몰</a></li>
+        <li><a href="#reviews"><span class="qi qi-orange"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="9" r="5"/><path d="m9 13-2 8 5-3 5 3-2-8"/></svg></span>수료증</a></li>
+        <li><a href="#timedeal"><span class="qi qi-purple"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 9h14v11H5zM3 6h18v3H3zM12 6v14M12 6c-2-4-6-3-5 0M12 6c2-4 6-3 5 0"/></svg></span>이벤트</a></li>
+      </ul>
+    </nav>
+
+    <!-- 6. 타임딜 -->
+    <section class="section" id="timedeal" aria-labelledby="timedeal-title">
+      <div class="section-head">
+        <h2 id="timedeal-title">⏰ 타임딜 <span class="head-sub">오늘 자정까지</span></h2>
+        <p class="countdown" role="timer" aria-live="off" aria-label="타임딜 남은 시간">
+          <span id="cdH">00</span>:<span id="cdM">00</span>:<span id="cdS">00</span>
+        </p>
+      </div>
+      <ul class="deal-list h-scroll" id="dealList"></ul>
+    </section>
+
+    <!-- 7. 베스트 랭킹 -->
+    <section class="section" id="ranking" aria-labelledby="ranking-title">
+      <div class="section-head">
+        <h2 id="ranking-title">베스트 강의 랭킹</h2>
+        <span class="head-sub">수강생 수 기준 · 더미</span>
+      </div>
+      <div class="chips" role="tablist" aria-label="랭킹 분류" id="rankTabs">
+        <button type="button" role="tab" class="chip is-active" aria-selected="true" data-cat="전체">전체</button>
+        <button type="button" role="tab" class="chip" aria-selected="false" data-cat="입문">입문</button>
+        <button type="button" role="tab" class="chip" aria-selected="false" data-cat="업무자동화">업무자동화</button>
+        <button type="button" role="tab" class="chip" aria-selected="false" data-cat="콘텐츠">콘텐츠</button>
+      </div>
+      <ol class="rank-list h-scroll" id="rankList" role="tabpanel" aria-labelledby="ranking-title"></ol>
+    </section>
+
+    <!-- 8. 강의 상품 그리드 -->
+    <section class="section" id="courses" aria-labelledby="courses-title">
+      <div class="section-head">
+        <h2 id="courses-title">전체 강의</h2>
+        <span class="head-sub" id="resultCount" aria-live="polite">12개 강의</span>
+      </div>
+      <ul class="grid" id="courseGrid"></ul>
+      <div class="empty" id="emptyState" hidden>
+        <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5M8 10.5h5"/></svg>
+        <p><strong>검색 결과 없음</strong><br>다른 검색어(예: 자동화, 블로그, 입문)로 찾아보세요.</p>
+        <button type="button" class="btn btn-secondary" id="resetSearch">전체 강의 보기</button>
+      </div>
+    </section>
+
+    <!-- 9. 빌더 결과물 쇼케이스 -->
+    <section class="section" id="showcase" aria-labelledby="showcase-title">
+      <div class="section-head">
+        <h2 id="showcase-title">빌더 결과물 쇼케이스</h2>
+        <span class="head-sub">수강생이 만든 결과물 (가상)</span>
+      </div>
+      <ul class="showcase-grid" id="showcaseGrid"></ul>
+    </section>
+
+    <!-- 10. 수강 후기 -->
+    <section class="section" id="reviews" aria-labelledby="reviews-title">
+      <div class="section-head">
+        <h2 id="reviews-title">수강 후기</h2>
+        <span class="head-sub">이름은 가려서 표시했어요</span>
+      </div>
+      <div class="review-wrap">
+        <div class="rating-summary">
+          <div class="rating-score">
+            <strong>4.8</strong>
+            <span class="stars" aria-hidden="true">★★★★★</span>
+            <span class="rating-count">후기 6,329개 (더미)</span>
+          </div>
+          <ul class="rating-bars" id="ratingBars" aria-label="별점 분포"></ul>
+        </div>
+        <ul class="review-list" id="reviewList"></ul>
+      </div>
+    </section>
+
+    <!-- 11. 스터디 · 커뮤니티 -->
+    <section class="section" id="study" aria-labelledby="study-title">
+      <div class="section-head">
+        <h2 id="study-title">스터디 모집</h2>
+        <span class="head-sub">혼자보다 같이 (가상 모임)</span>
+      </div>
+      <ul class="mini-list" id="studyList"></ul>
+      <div class="section-head sub-head" id="community">
+        <h2>커뮤니티 · 빌더 LIVE</h2>
+      </div>
+      <ul class="mini-list" id="communityList"></ul>
+    </section>
+
+    <!-- 12. FAQ -->
+    <section class="section" id="faq" aria-labelledby="faq-title">
+      <div class="section-head">
+        <h2 id="faq-title">자주 묻는 질문</h2>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>코딩을 전혀 몰라도 들을 수 있나요?</summary>
+          <p>네. AI빌더스랩(예시)의 모든 입문 강의는 비개발자를 기준으로 만들어졌다는 설정이에요. 복사·붙여넣기만 할 줄 알면 시작할 수 있어요.</p>
+        </details>
+        <details>
+          <summary>‘바로수강’은 무엇인가요?</summary>
+          <p>결제(가상) 즉시 첫 강의를 볼 수 있는 강의에 붙는 표시예요. 상품 카드의 빨간 태그로 구분해요.</p>
+        </details>
+        <details>
+          <summary>월간 빌더절 쿠폰은 어떻게 받나요?</summary>
+          <p>매월 11일 하루 동안 상단 배너의 ‘수강 쿠폰 11%’를 받는다는 설정이에요. 이 페이지는 수업 예제라 실제 쿠폰은 발급되지 않아요.</p>
+        </details>
+        <details>
+          <summary>1:1 코칭은 어떻게 신청하나요?</summary>
+          <p>강의 수강 후 ‘내 강의실’에서 신청하는 흐름을 가정했어요. 실제 신청 기능은 연결되어 있지 않아요.</p>
+        </details>
+        <details>
+          <summary>수료증이 나오나요?</summary>
+          <p>진도율 80% 이상이면 수료증(예시)이 발급된다는 설정이에요. 모든 내용은 더미 데이터입니다.</p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <!-- 13. 푸터 -->
+  <footer class="site-footer" id="footer">
+    <div class="container">
+      <nav class="footer-links" aria-label="푸터 메뉴">
+        <button type="button" data-toast>회사소개(예시)</button>
+        <button type="button" data-toast>이용약관(예시)</button>
+        <button type="button" data-toast><strong>개인정보처리방침(예시)</strong></button>
+        <button type="button" data-toast>강사 지원(예시)</button>
+        <a href="#faq">고객센터</a>
+      </nav>
+      <div class="footer-grid">
+        <div>
+          <p class="footer-logo">AI<small>빌더스랩</small></p>
+          <p class="footer-info">
+            상호 AI빌더스랩(예시) · 대표 홍길동(예시)<br>
+            사업자등록번호 000-00-00000(예시) · 통신판매업 제0000-가상-0000호(예시)<br>
+            주소 가상시 예시구 샘플로 00, 0층(예시)<br>
+            이메일 hello@example.com(예시)
+          </p>
+        </div>
+        <div class="footer-cs">
+          <p class="footer-cs-title">고객센터 <strong>0000-0000</strong> <span>(예시)</span></p>
+          <p class="footer-info">평일 10:00 ~ 18:00 · 점심 12:00 ~ 13:00 · 주말/공휴일 휴무 (예시)</p>
+        </div>
+      </div>
+      <p class="footer-disclaimer">본 페이지는 수업 예제용 더미 데이터로 구성되었습니다. 표시된 강의·가격·후기·인물·회사 정보는 모두 가상이며, 특정 쇼핑몰과 제휴 관계가 없습니다.</p>
+      <p class="footer-copy">© 2026 AI빌더스랩 (수업 예제)</p>
+    </div>
+  </footer>
+
+  <!-- 14. 모바일 하단 탭바 -->
+  <nav class="tabbar" aria-label="하단 메뉴">
+    <a href="#top" class="tab is-active" aria-current="page">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>홈
+    </a>
+    <button type="button" class="tab" data-toast>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M4 6h16M4 12h16M4 18h16"/></svg>카테고리
+    </button>
+    <button type="button" class="tab" id="tabSearch">
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>검색
+    </button>
+    <button type="button" class="tab" data-toast>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 4h2l2.1 10.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 7H6"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/></svg>장바구니
+    </button>
+    <button type="button" class="tab" data-toast>
+      <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg>마이
+    </button>
+  </nav>
+
+  <!-- 결과물 상세 모달 -->
+  <dialog class="modal" id="projectDialog" aria-labelledby="modalTitle">
+    <div class="modal-body" id="modalBody"></div>
+    <form method="dialog" class="modal-foot">
+      <button type="submit" class="btn btn-primary">닫기</button>
+    </form>
+  </dialog>
+
+  <!-- 토스트 알림 -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <noscript><p class="noscript">이 수업 예제는 자바스크립트로 강의 목록을 그립니다. 자바스크립트를 켜 주세요.</p></noscript>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
